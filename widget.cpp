@@ -59,3 +59,15 @@ void Widget::on_pbSend_clicked()
     socket_.write(ui->pteSend->toPlainText().toUtf8());
 }
 
+
+void Widget::on_plainTextEdit_blockCountChanged(int newBlockCount)
+{
+
+}
+
+
+void Widget::on_CheckBox_checkStateChanged(const Qt::CheckState &arg1)
+{
+
+}
+
