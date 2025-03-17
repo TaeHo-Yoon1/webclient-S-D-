@@ -76,13 +76,4 @@ void Widget::on_CheckBox_checkStateChanged(const Qt::CheckState &arg1)
     }
 }
 
-// void Widget::on_LEPort_cursorPositionChanged(int arg1, int arg2)
-// {
-//     QString portText = ui->LEPort->text();
-//     if (portText == "443") {
-//         ui->CheckBox->setCheckState(Qt::Checked);
-//     } else if (portText == "80") {
-//         ui->CheckBox->setCheckState(Qt::Unchecked);
-//     }
-// }
 
