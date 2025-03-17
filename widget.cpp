@@ -11,6 +11,11 @@ Widget::Widget(QWidget *parent)
     QObject::connect(&socket_, &QAbstractSocket::disconnected, this, &Widget::doDisConnected);
     QObject::connect(&socket_, &QIODevice::readyRead, this, &Widget::doReadyread);
 
+    if (ui->CheckBox->checkState() == Qt::Checked) {
+        ui->LEPort->setText("443");
+    } else {
+        ui->LEPort->setText("80");
+    }
 }
 
 Widget::~Widget()
@@ -60,14 +65,24 @@ void Widget::on_pbSend_clicked()
 }
 
 
-void Widget::on_plainTextEdit_blockCountChanged(int newBlockCount)
-{
-
-}
 
 
 void Widget::on_CheckBox_checkStateChanged(const Qt::CheckState &arg1)
 {
-
+    if (arg1 == Qt::Checked) {
+        ui->LEPort->setText("443");
+    } else {
+        ui->LEPort->setText("80");
+    }
 }
+
+// void Widget::on_LEPort_cursorPositionChanged(int arg1, int arg2)
+// {
+//     QString portText = ui->LEPort->text();
+//     if (portText == "443") {
+//         ui->CheckBox->setCheckState(Qt::Checked);
+//     } else if (portText == "80") {
+//         ui->CheckBox->setCheckState(Qt::Unchecked);
+//     }
+// }
 

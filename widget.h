@@ -2,7 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QTcpSocket>
+#include <QSslSocket>
 
 
 QT_BEGIN_NAMESPACE
@@ -35,6 +35,8 @@ private slots:
     void on_Clear_clicked();
 
     void on_pbSend_clicked();
+
+    void on_CheckBox_checkStateChanged(const Qt::CheckState &arg1);
 
 private:
     Ui::Widget *ui;
