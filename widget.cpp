@@ -76,4 +76,3 @@ void Widget::on_CheckBox_checkStateChanged(const Qt::CheckState &arg1)
     }
 }
 
-

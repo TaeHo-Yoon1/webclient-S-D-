@@ -2,13 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
-<<<<<<< HEAD
 #include <QSslSocket>
 
-=======
-// #include <QTcpSocket>
-#include <QSslSocket>
->>>>>>> f5a7d39918c75767a85579b9967be62551bfb0d4
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
