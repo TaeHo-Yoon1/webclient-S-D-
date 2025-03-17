@@ -10,7 +10,13 @@ Widget::Widget(QWidget *parent)
     QObject::connect(&socket_, &QAbstractSocket::connected, this, &Widget::doConnected);
     QObject::connect(&socket_, &QAbstractSocket::disconnected, this, &Widget::doDisConnected);
     QObject::connect(&socket_, &QIODevice::readyRead, this, &Widget::doReadyread);
-
+    
+    // 초기 체크박스 상태에 따라 포트 설정
+    if (ui->CheckBox->checkState() == Qt::Checked) {
+        ui->LEPort->setText("443");
+    } else {
+        ui->LEPort->setText("80");
+    }
 }
 
 Widget::~Widget()
@@ -60,14 +66,26 @@ void Widget::on_pbSend_clicked()
 }
 
 
-void Widget::on_plainTextEdit_blockCountChanged(int newBlockCount)
-{
-
-}
 
 
 void Widget::on_CheckBox_checkStateChanged(const Qt::CheckState &arg1)
 {
+    if (arg1 == Qt::Checked) {
+        ui->LEPort->setText("443");
+    } else {
+        ui->LEPort->setText("80");
+    }
+}
 
+void Widget::on_LEPort_cursorPositionChanged(int arg1, int arg2)
+{
+    // 포트 번호에 따라 체크박스 상태 변경
+    QString portText = ui->LEPort->text();
+    if (portText == "443") {
+        ui->CheckBox->setCheckState(Qt::Checked);
+    } else if (portText == "80") {
+        ui->CheckBox->setCheckState(Qt::Unchecked);
+    }
+    // 다른 포트 번호는 체크박스 상태를 변경하지 않음
 }
 
